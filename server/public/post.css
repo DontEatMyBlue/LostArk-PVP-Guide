@@ -1,0 +1,205 @@
+body {
+  margin: 0;
+  background-color: #f5f7f7;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#toolskill1,
+#toolskill2,
+#toolskill3 {
+  display: none;
+  position: absolute;
+  max-width: 200px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+  z-index: 1;
+  padding: 5px 8px;
+  line-height: 1.4;
+}
+
+.test1:hover ~ #toolskill1,
+.test2:hover ~ #toolskill2,
+.test3:hover ~ #toolskill3 {
+  display: block;
+}
+
+.my {
+  text-align: center;
+}
+
+.my button {
+  padding: 10px;
+  width: 120px;
+}
+
+.opp button {
+  padding: 10px;
+  width: 120px;
+}
+
+.myJob {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* .community {
+  display: flex;
+  align-self: center;
+  text-align: center;
+} */
+
+.pongpong {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+button:hover {
+  background-color: lightgray;
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+}
+
+.textContent textarea {
+  width: 500px;
+  height: 150px;
+  resize: none;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #74c277;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 5px;
+}
+
+.test11 {
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.container > div {
+  margin-bottom: 20px;
+}
+#tagArea {
+  border: 1px solid #ccc;
+  height: 500px;
+  width: 800px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+#tagArea > div + div {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+button:active {
+  background-color: #4caf50;
+  color: white;
+  border: 2px solid #4caf50;
+}
+button[name="aa"] {
+  padding: 5px 8px;
+  font-size: 0.8em;
+}
+.selected-button {
+  background-color: lightblue;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+li {
+  width: 330px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.skill-list {
+  display: flex;
+  justify-content: center;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-info img {
+  max-width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+.number {
+  color: blue;
+}
+.unit {
+  color: red;
+}
+.percent {
+  color: green;
+}
+
+.jobSelector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid var(--base-colors-light-gray, #e4e4e7);
+  width: 300px;
+  height: 400px;
+}

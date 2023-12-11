@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/post.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="HeaderComponent">
+      <div class="HeaderContainer">
+        <span>
+          <a href="http://localhost:3001/">로코코</a>
+        </span>
+        <nav class="HeaderNav">
+          <a href="http://localhost:3000/post">가이드</a>
+          <a href="http://localhost:3000/skilldb">스킬DB</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- main -->
+    <form name="input" method="post">
+      <div class="skilldbButtonGroup">
+        
+      
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="디스트로이어"
+          formaction="/search"
+        >
+          디스트로이어
+        </button>
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="워로드"
+          formaction="/search"
+        >
+          워로드
+        </button>
+   
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="버서커"
+          formaction="/search"
+        >
+          버서커
+        </button>
+   
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="홀리나이트"
+          formaction="/search"
+        >
+          홀리나이트
+        </button>
+          
+        </button>
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="서머너"
+          formaction="/search"
+        >
+          서머너
+        </button>
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="아르카나"
+          formaction="/search"
+        >
+          아르카나
+        </button>
+        <button
+          type="submit"
+          class="me2"
+          name="job"
+          value="바드"
+          formaction="/search"
+        >
+          바드
+        </button>
+      </div>
+      
+    </form>
+
+    <ul class="skill-list">
+      <% for(var i = 0; i < rows.length; i++) { %>
+      <li>
+        <div class="skill-info">
+          <img src="<%=rows[i].SkillThumb%>" alt="이미지" />
+          <h3><%=rows[i].SkillName%></h3>
+        </div>
+        <hr class="divider" />
+        <!-- 가로 선 추가 -->
+        <p><%=rows[i].SkillEx%></p>
+        <img
+          src="<%=rows[i].SkillImg%>"
+          alt="이미지"
+          width="327"
+          height="257"
+        />
+      </li>
+      <% } %>
+    </ul>
+    <script>
+      // var meButtons = document.getElementsByClassName("me2");
+      // for (var i = 0; i < meButtons.length; i++) {
+      //     if (meButtons[i].value === "<%=postme%>") {
+      //         meButtons[i].style.backgroundColor = "#45a049";
+      //     }
+      // }
+
+      var skillDescriptions = document.querySelectorAll(".skill-list p");
+
+      skillDescriptions.forEach(function (skillDescription) {
+        var text = skillDescription.innerHTML;
+        var replacedText = text.replace(/(\d+%?m?)/g, function (match) {
+          if (match.endsWith("m")) {
+            return '<span class="unit">' + match + "</span>";
+          } else if (match.endsWith("%")) {
+            return '<span class="percent">' + match + "</span>";
+          } else {
+            return '<span class="number">' + match + "</span>";
+          }
+        });
+        skillDescription.innerHTML = replacedText;
+      });
+    </script>
+  </body>
+</html>

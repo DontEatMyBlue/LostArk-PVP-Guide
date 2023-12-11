@@ -1,0 +1,28 @@
+.FooterComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid var(--base-colors-light-gray, #e4e4e7);
+  margin-top: 25px;
+  width: 350px;
+  height: 800px;
+}
+
+.FooterComponent img {
+  border-radius: 6px;
+}
+
+.FooterComponent h2 {
+  margin: 0px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0px;
+}
