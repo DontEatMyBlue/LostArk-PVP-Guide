@@ -38,10 +38,12 @@ app.post("/searchdb", function (req, res) {
   dbsearch = req.body.searchSkill;
 
   res.redirect("/admin");
+  
 });
 
 let JobName11, SkillName11, SkillEx11, AttHit11, DefHit11;
 app.get("/admin", (req, res) => {
+  
   var sql =
     "select JobName,SkillName,SkillEx,AttHit,DefHit from skill where SkillName =?";
   var param = dbsearch;
@@ -77,6 +79,8 @@ app.get("/admin", (req, res) => {
       DefHit11: DefHit11,
     });
   }
+  
+  
 });
 
 app.post("/inputdb", upload.array("SkillImage"), function (req, res) {
@@ -187,6 +191,11 @@ app.post("/inputpost", function (req, res) {
     }
   });
   result = [];
+  savecontents = "";
+  id = "";
+  password=""
+  me,
+  you = "";
   res.redirect("/post");
 });
 
