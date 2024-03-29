@@ -42,13 +42,9 @@ app.post("/searchdb", function (req, res) {
 });
 
 let JobName11, SkillName11, SkillEx11, AttHit11, DefHit11;
-<<<<<<< HEAD
-app.get("/admin", (req, res) => {
-  
-=======
+
 //관리자 페이지 스킬 검색
 app.get("/admin", (req, res) => {
->>>>>>> e397e3f (주석 설명 추가)
   var sql =
     "select JobName,SkillName,SkillEx,AttHit,DefHit from skill where SkillName =?";
   var param = dbsearch;
@@ -87,11 +83,7 @@ app.get("/admin", (req, res) => {
   
   
 });
-<<<<<<< HEAD
-
-=======
 //관리자 페이지 스킬 추가
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/inputdb", upload.array("SkillImage"), function (req, res) {
   var sql1 = "Select SkillName from skill where SkillName = ?";
   var param1 = req.body.SkillName;
@@ -137,10 +129,7 @@ app.post("/inputdb", upload.array("SkillImage"), function (req, res) {
     }
   });
 });
-<<<<<<< HEAD
-=======
 //관리자 페이지 스킬 업데이트(post X put O)
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/updatedb", upload.array("SkillImage"), function (req, res) {
   var sql =
     "Update skill set SkillEx=?,AttHit=?,DefHit=?,SkillImg=?,SkillThumb=? where SkillName = ?";
@@ -164,11 +153,8 @@ app.post("/updatedb", upload.array("SkillImage"), function (req, res) {
   });
   res.send("<script>alert('수정 완료!');location.href='/admin';</script>");
 });
-<<<<<<< HEAD
-=======
 
 //관리자 페이지 스킬 삭제(post X delete O)
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/deletedb", upload.single("SkillImage"), function (req, res) {
   var sql = "Delete from skill where SkillName = ?";
   const SkillName = req.body.SkillName;
@@ -183,11 +169,8 @@ app.post("/deletedb", upload.single("SkillImage"), function (req, res) {
 });
 
 let result = [];
-<<<<<<< HEAD
-=======
 
 //게시글 입력
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/inputpost", function (req, res) {
   let sent = req.body.contents;
   let regex = /\[(.*?)\]/g;
@@ -227,10 +210,7 @@ let savecontents,
   password,
   me,
   you = "";
-<<<<<<< HEAD
-=======
 //글쓰기 페이지
->>>>>>> e397e3f (주석 설명 추가)
 app.get("/write", function (req, res, next) {
   const sql = "select SkillName,SkillThumb from skill where JobName = ? ";
   var param = jobname1;
@@ -249,29 +229,20 @@ app.get("/write", function (req, res, next) {
 
 let postme = "";
 let postyou = "";
-<<<<<<< HEAD
-=======
 
 //가이드 페이지 내 직업 고르기
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/postsearch", function (req, res) {
   postme = req.body.me;
   res.redirect("/post");
 });
-<<<<<<< HEAD
-=======
 
 //가이드 페이지 상대 직업 고르기
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/postsearch1", function (req, res) {
   postyou = req.body.you;
   res.redirect("/post");
 });
 
-<<<<<<< HEAD
-=======
 //게시글 출력(HOVER 정보 포함)
->>>>>>> e397e3f (주석 설명 추가)
 app.get("/post", function (req, res) {
   let sql =
     "SELECT P.password,P.Num,P.id,P.Contents,P.SkillName1, S1.SkillEx AS SkillEx1, S1.SkillImg AS SkillImg1,S1.SkillThumb AS SkillThumb1, P.SkillName2, S2.SkillEx AS SkillEx2, S2.SkillImg AS SkillImg2, S2.SkillThumb AS SkillThumb2,P.SkillName3, S3.SkillEx AS SkillEx3, S3.SkillImg AS SkillImg3, S3.SkillThumb AS SkillThumb3 FROM Post AS P LEFT JOIN Skill AS S1 ON P.SkillName1 = S1.SkillName LEFT JOIN Skill AS S2 ON P.SkillName2 = S2.SkillName LEFT JOIN Skill AS S3 ON P.SkillName3 = S3.SkillName WHERE ME =? AND YOU=? ; ";
@@ -283,10 +254,7 @@ app.get("/post", function (req, res) {
     res.render("post", { rows, rows, postme: postme, postyou: postyou });
   });
 });
-<<<<<<< HEAD
-=======
 //글 삭제
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/tt", function (req, res) {
   console.log("실행됨" + req.body.aa);
   var sql = "Delete from post where Num = ?";
@@ -307,21 +275,14 @@ app.post("/tt1", function (req, res) {
 
 let jobname = "";
 let jobname1 = "";
-<<<<<<< HEAD
-=======
 
 // 스킬DB 페이지 직업 검색
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/search", function (req, res) {
   jobname = req.body.job;
 
   res.redirect("/skilldb/");
 });
-<<<<<<< HEAD
-
-=======
 //글쓰기
->>>>>>> e397e3f (주석 설명 추가)
 app.post("/search1", function (req, res) {
   jobname1 = req.body.job;
   savecontents = req.body.contents;
@@ -336,11 +297,7 @@ app.post("/search1", function (req, res) {
 
 =======
 //스킬DB 페이지
->>>>>>> e397e3f (주석 설명 추가)
-app.get("/skilldb", function (req, res, next) {
-  const sql =
     "select SkillName,SkillEx,SkillImg,SkillThumb from skill where JobName = ? ";
-  var param = jobname;
   connection.query(sql, [param], function (err, rows) {
     if (err) console.error();
     res.render("skilldb", { rows: rows, postme: postme });
