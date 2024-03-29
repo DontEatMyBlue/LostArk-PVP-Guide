@@ -42,7 +42,6 @@ app.post("/searchdb", function (req, res) {
 });
 
 let JobName11, SkillName11, SkillEx11, AttHit11, DefHit11;
-
 //관리자 페이지 스킬 검색
 app.get("/admin", (req, res) => {
   var sql =
@@ -293,10 +292,9 @@ app.post("/search1", function (req, res) {
 
   res.redirect("/write/");
 });
-<<<<<<< HEAD
-
-=======
 //스킬DB 페이지
+app.get("/skilldb", function (req, res, next) {
+  const sql =
     "select SkillName,SkillEx,SkillImg,SkillThumb from skill where JobName = ? ";
   connection.query(sql, [param], function (err, rows) {
     if (err) console.error();
